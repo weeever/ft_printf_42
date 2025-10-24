@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: weeever <weeever@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:10:46 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/24 17:39:19 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/24 22:55:53 by weeever          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_putnbr_fd(int n, int fd, int *count)
 	else if (n == 2147483647)
 	{
 		write(fd, "2147483647", 10);
+		(*count) += 10;
 		return ;
 	}
 	if (n < 0)
