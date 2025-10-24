@@ -6,7 +6,7 @@
 /*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:31:25 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/24 12:43:35 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:53:15 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_printf(const char *src, ...)
 	va_start(lst, src);
 	while (src[i] != '\0')
 	{
-		if (src[i++] == '%' && src[i + 1] == 'c')
+		if (src[i] == '%' && src[i + 1] == 'c')
 		{
 			ft_putchar_fd(va_arg(lst, int), 1, &count);
 			i++;
@@ -51,19 +51,27 @@ int	ft_printf(const char *src, ...)
 		}
 		else if (src[i] == '%' && (src[i + 1] == 'd' || src[i + 1] == 'i'))
 		{
-
+			ft_putnbr_fd(va_arg(lst, int), 1, &count);
+			i++;
+		}
+		else if (src[i] == '%' && src[i + 1] == 'u')
+		{
+			ft_putnbr_fd(va_arg(lst, unsigned int), 1, &count);
+			i++;
 		}
 		else
 			ft_putchar_fd(src[i], 1, &count);
 		i++;
 	}
 	va_end(lst);
-	return (i);
+	return (count);
 }
 
 int main(void)
 {
-	char *c = "test les coupine";
-	ft_printf("test%s", c);
+	char *c = "test";
+	unsigned int	a = -1;
+	ft_printf("%u", a);
+	printf("\n%u", a);
 	//printf("%s %s %s %s %s %s %s %s %s %s %s %s ", r,r,r,r,r,r,r,r,r,r,r,r);
 }

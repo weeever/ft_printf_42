@@ -6,7 +6,7 @@
 /*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 10:24:55 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/24 12:34:48 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:36:37 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putchar_fd(char c, int fd, int *count)
 {
 	write (fd, &c, 1);
-	count++;
+	(*count)++;
 }

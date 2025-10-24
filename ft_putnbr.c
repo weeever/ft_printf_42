@@ -6,7 +6,7 @@
 /*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:10:46 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/24 12:34:38 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:39:19 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_putnbr_fd(int n, int fd, int *count)
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
+		(*count) += 11;
 		return ;
 	}
 	else if (n == 2147483647)
@@ -26,14 +27,14 @@ void	ft_putnbr_fd(int n, int fd, int *count)
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd, &count);
+		ft_putchar_fd('-', fd, &(*count));
 		n = n * -1;
 	}
 	if (n > 9)
 	{
-		ft_putnbr_fd((n / 10), fd, &count);
-		ft_putchar_fd((n % 10) + '0', fd, &count);
+		ft_putnbr_fd((n / 10), fd, &(*count));
+		ft_putchar_fd((n % 10) + '0', fd, &(*count));
 	}
 	else
-		ft_putchar_fd((n + '0'), fd, &count);
+		ft_putchar_fd((n + '0'), fd, &(*count));
 }
