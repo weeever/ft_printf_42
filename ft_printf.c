@@ -6,43 +6,64 @@
 /*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:31:25 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/23 18:08:36 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/24 12:43:35 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
+void	ft_putstr(char *src)
+{
+	int i;
+
+	i = 0;
+
+	while (src[i] != '\0')
+	{
+		write(1, &src[i], 1);
+		i++;
+	}
+}
+
 int	ft_printf(const char *src, ...)
 {
 	va_list	lst;
 	int		i;
-	int		j;
-	char *sign;
+	int		count;
+	int		arg;
+	char *args;
 
+	count = 0;
+	arg = 0;
 	i = 0;
-	j = 0;
+	va_start(lst, src);
 	while (src[i] != '\0')
 	{
-		if (src[i] == '%')
+		if (src[i++] == '%' && src[i + 1] == 'c')
 		{
-			if (src[i + 1] == 'c' || src[i + 1] == 's' || src[i + 1] == 's'
-				|| src[i + 1] == 'p' || src[i + 1] == 'd' || src[i + 1] == 'i'
-				|| src[i + 1] == 'u' || src[i + 1] == 'x' || src[i + 1] == 'X')
-				i++;
-		}
-		va_start(lst, i);
-		while (i != j)
-		{
-
+			ft_putchar_fd(va_arg(lst, int), 1, &count);
 			i++;
 		}
+		else if (src[i] == '%' && src[i + 1] == 's')
+		{
+			ft_putstr_fd(va_arg(lst, char *), 1, &count);
+			i++;
+		}
+		else if (src[i] == '%' && (src[i + 1] == 'd' || src[i + 1] == 'i'))
+		{
 
+		}
+		else
+			ft_putchar_fd(src[i], 1, &count);
+		i++;
 	}
+	va_end(lst);
 	return (i);
 }
 
 int main(void)
 {
-	char *r = "1";
-	printf("%s %s %s %s %s %s %s %s %s %s %s %s ", r,r,r,r,r,r,r,r,r,r,r,r);
+	char *c = "test les coupine";
+	ft_printf("test%s", c);
+	//printf("%s %s %s %s %s %s %s %s %s %s %s %s ", r,r,r,r,r,r,r,r,r,r,r,r);
 }
