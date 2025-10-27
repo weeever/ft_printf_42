@@ -6,7 +6,7 @@
 /*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:10:46 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/27 13:07:48 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:17:32 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void	ft_putnbr(int n, int fd, int *count)
 
 void	ft_putnbr_unsigned(unsigned int n, int fd, int *count)
 {
-	if (n < 0)
+	if (n == 4294967295)
 	{
-		ft_putchar('-', fd, &(*count));
-		n = n * -1;
+		write(fd, "4294967295", 10);
+		(*count) += 10;
+		return ;
 	}
 	if (n > 9)
 	{
@@ -56,14 +57,11 @@ void	ft_putnbr_unsigned(unsigned int n, int fd, int *count)
 		ft_putchar((n + '0'), fd, &(*count));
 }
 
-void	ft_putnbr_hexa(unsigned long int n, int fd, int *count)
+void	ft_putnbr_hexa(unsigned long n, int *count, char *base)
 {
-	char	*base;
-
-	base = "0123456789abcdef";
 	if (n >= 16)
 	{
-		ft_putnbr_hexa((n / 16), fd, &(*count));
+		ft_putnbr_hexa((n / 16), &(*count), base);
 		write(1, &base[n % 16], 1);
 		(*count)++;
 	}
