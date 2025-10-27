@@ -6,11 +6,11 @@
 /*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:10:46 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/25 09:57:27 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/27 13:07:48 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr(int n, int fd, int *count)
 {
@@ -54,4 +54,22 @@ void	ft_putnbr_unsigned(unsigned int n, int fd, int *count)
 	}
 	else
 		ft_putchar((n + '0'), fd, &(*count));
+}
+
+void	ft_putnbr_hexa(unsigned long int n, int fd, int *count)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (n >= 16)
+	{
+		ft_putnbr_hexa((n / 16), fd, &(*count));
+		write(1, &base[n % 16], 1);
+		(*count)++;
+	}
+	else
+	{
+		write(1, &base[n % 16], 1);
+		(*count)++;
+	}
 }

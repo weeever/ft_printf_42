@@ -6,7 +6,7 @@
 #    By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 12:18:26 by tidebonl          #+#    #+#              #
-#    Updated: 2025/10/23 12:18:27 by tidebonl         ###   ########.fr        #
+#    Updated: 2025/10/27 13:06:56 by tidebonl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = libftprintf.a
 
 INCLUDES = .printf.h
 
-SOURCES	  = ft_atoi.c \
+SOURCES	  = ft_printf.c \
+			ft_putnbr.c \
+			ft_putstr.c
 
 MY_OBJECTS = $(SOURCES:.c=.o)
 
