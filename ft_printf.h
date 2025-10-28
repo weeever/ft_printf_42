@@ -3,21 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: weeever <weeever@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:13:23 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/27 18:16:19 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/28 12:53:53 by weeever          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdlib.h>
-# include <unistd.h>
 # include <stdarg.h>
-# include <stdio.h>
-# include <string.h>
+# include <unistd.h>
 
 int		ft_printf(const char *src, ...) __attribute__((format(printf, 1, 2)));
 void	ft_putnbr(int n, int fd, int *count);
