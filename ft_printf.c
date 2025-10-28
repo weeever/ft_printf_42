@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: weeever <weeever@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:31:25 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/28 12:38:18 by weeever          ###   ########.fr       */
+/*   Updated: 2025/10/28 12:59:48 by tidebonl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ int	ft_printf(const char *src, ...)
 	va_end(lst);
 	return (count);
 }
-
