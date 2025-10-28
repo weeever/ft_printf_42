@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tidebonl <tidebonl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: weeever <weeever@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 10:24:55 by tidebonl          #+#    #+#             */
-/*   Updated: 2025/10/27 17:55:39 by tidebonl         ###   ########.fr       */
+/*   Updated: 2025/10/28 12:33:03 by weeever          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_putchar(char c, int fd, int *count)
 	write (fd, &c, 1);
 	(*count)++;
 }
-
 
 void	ft_putstr(char *s, int fd, int *count)
 {
